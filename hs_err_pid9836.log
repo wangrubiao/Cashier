@@ -1,0 +1,144 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x0000000180008790, pid=9836, tid=7148
+#
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (11.3-b02 mixed mode windows-amd64)
+# Problematic frame:
+# C  [rxtxSerial.dll+0x8790]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000009cb400):  JavaThread "main" [_thread_in_native, id=7148, stack(0x0000000002470000,0x0000000002570000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000000000000f8
+
+Registers:
+EAX=0x0000000000000002, EBX=0x0000000006f41000, ECX=0x0000000000000001, EDX=0x0000000000000000
+ESP=0x000000000256f4b0, EBP=0x000000000256f728, ESI=0x00000000062a7bb9, EDI=0x0000000000000000
+EIP=0x0000000180008790, EFLAGS=0x0000000000010202
+
+Top of Stack: (sp=0x000000000256f4b0)
+0x000000000256f4b0:   0000000006f41000 00000000062a7bb0
+0x000000000256f4c0:   0000000000000009 000000006dba8846
+0x000000000256f4d0:   00000000062a7bb0 000000018000aab4
+0x000000000256f4e0:   00000000009cb5c0 0000000000000106
+0x000000000256f4f0:   000000008036ba08 000000000256f730
+0x000000000256f500:   00000000061c2940 00000000062a7bb0
+0x000000000256f510:   000000000256f728 000000018000b7fe
+0x000000000256f520:   00000000009c6ab0 00000000009cbad0
+0x000000000256f530:   00000000009cb5c0 00000000009cbeb8
+0x000000000256f540:   00000000009cb400 0000000000000000
+0x000000000256f550:   00001819ae40e8cf 000000007fffffdc
+0x000000000256f560:   000000000256f5f0 0000000000000042
+0x000000000256f570:   00000000009cb5c0 0000000000000000
+0x000000000256f580:   00000000062a7bb0 000000018000213d
+0x000000000256f590:   00000000009cb5c0 000000018001c0b0
+0x000000000256f5a0:   0000000000000000 0000000180000000 
+
+Instructions: (pc=0x0000000180008790)
+0x0000000180008780:   48 8b 5c 24 30 48 8b 74 24 38 48 83 c4 20 5f c3
+0x0000000180008790:   39 87 f8 00 00 00 7d 20 0f 1f 84 00 00 00 00 00 
+
+
+Stack: [0x0000000002470000,0x0000000002570000],  sp=0x000000000256f4b0,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [rxtxSerial.dll+0x8790]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  gnu.io.RXTXPort.open(Ljava/lang/String;)I+0
+j  gnu.io.RXTXPort.<init>(Ljava/lang/String;)V+125
+j  gnu.io.RXTXCommDriver.getCommPort(Ljava/lang/String;I)Lgnu/io/CommPort;+78
+j  gnu.io.CommPortIdentifier.open(Ljava/lang/String;I)Lgnu/io/CommPort;+171
+j  test.CommUtil.<init>(Ljava/util/Enumeration;Ljava/lang/String;)V+74
+j  test.Test.main([Ljava/lang/String;)V+32
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000006278000 JavaThread "Thread-0" [_thread_in_native, id=5228, stack(0x0000000006c60000,0x0000000006d60000)]
+  0x0000000006221400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=7628, stack(0x0000000006a60000,0x0000000006b60000)]
+  0x0000000006216000 JavaThread "CompilerThread1" daemon [_thread_blocked, id=6124, stack(0x0000000006960000,0x0000000006a60000)]
+  0x0000000006214400 JavaThread "CompilerThread0" daemon [_thread_blocked, id=4224, stack(0x0000000006860000,0x0000000006960000)]
+  0x0000000006213800 JavaThread "Attach Listener" daemon [_thread_blocked, id=3084, stack(0x0000000006760000,0x0000000006860000)]
+  0x0000000006213000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5440, stack(0x0000000006660000,0x0000000006760000)]
+  0x000000000266d800 JavaThread "Finalizer" daemon [_thread_blocked, id=3756, stack(0x0000000006560000,0x0000000006660000)]
+  0x000000000266cc00 JavaThread "Reference Handler" daemon [_thread_blocked, id=8248, stack(0x0000000006460000,0x0000000006560000)]
+=>0x00000000009cb400 JavaThread "main" [_thread_in_native, id=7148, stack(0x0000000002470000,0x0000000002570000)]
+
+Other Threads:
+  0x00000000061c1c00 VMThread [stack: 0x0000000006360000,0x0000000006460000] [id=7848]
+  0x0000000006221c00 WatcherThread [stack: 0x0000000006b60000,0x0000000006c60000] [id=10872]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 37632K, used 1939K [0x00000000d93f0000, 0x00000000dbde0000, 0x00000001033f0000)
+  eden space 32320K, 6% used [0x00000000d93f0000,0x00000000d95d4e10,0x00000000db380000)
+  from space 5312K, 0% used [0x00000000db8b0000,0x00000000db8b0000,0x00000000dbde0000)
+  to   space 5312K, 0% used [0x00000000db380000,0x00000000db380000,0x00000000db8b0000)
+ PSOldGen        total 86016K, used 0K [0x00000000853f0000, 0x000000008a7f0000, 0x00000000d93f0000)
+  object space 86016K, 0% used [0x00000000853f0000,0x00000000853f0000,0x000000008a7f0000)
+ PSPermGen       total 21248K, used 3710K [0x000000007fff0000, 0x00000000814b0000, 0x00000000853f0000)
+  object space 21248K, 17% used [0x000000007fff0000,0x000000008038fba8,0x00000000814b0000)
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042e000 	E:\Program Files\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\bin\javaw.exe
+0x00007ff87af50000 - 0x00007ff87b111000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff879f20000 - 0x00007ff879fcd000 	C:\WINDOWS\system32\KERNEL32.DLL
+0x00007ff877600000 - 0x00007ff8777e8000 	C:\WINDOWS\system32\KERNELBASE.dll
+0x00007ff87a490000 - 0x00007ff87a537000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x00007ff879e80000 - 0x00007ff879f1d000 	C:\WINDOWS\system32\msvcrt.dll
+0x00007ff87a1a0000 - 0x00007ff87a1fb000 	C:\WINDOWS\system32\sechost.dll
+0x00007ff87ad70000 - 0x00007ff87ae8c000 	C:\WINDOWS\system32\RPCRT4.dll
+0x00007ff87a040000 - 0x00007ff87a196000 	C:\WINDOWS\system32\USER32.dll
+0x00007ff879c80000 - 0x00007ff879e06000 	C:\WINDOWS\system32\GDI32.dll
+0x00007ff87ab70000 - 0x00007ff87abab000 	C:\WINDOWS\system32\IMM32.DLL
+0x000000006d890000 - 0x000000006de48000 	E:\Program Files\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\server\jvm.dll
+0x00007ff875720000 - 0x00007ff875743000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff875600000 - 0x00007ff87562c000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ff877880000 - 0x00007ff8778c3000 	C:\WINDOWS\system32\cfgmgr32.dll
+0x000000006d3b0000 - 0x000000006d3ba000 	E:\Program Files\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\hpi.dll
+0x00007ff8799c0000 - 0x00007ff8799c8000 	C:\WINDOWS\system32\PSAPI.DLL
+0x000000006d800000 - 0x000000006d80e000 	E:\Program Files\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\verify.dll
+0x000000006d450000 - 0x000000006d477000 	E:\Program Files\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\java.dll
+0x000000006d850000 - 0x000000006d862000 	E:\Program Files\MyEclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\zip.dll
+0x0000000180000000 - 0x0000000180025000 	E:\Program Files\Java\jdk1.8.0_65\bin\rxtxSerial.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: test.Test
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=E:\Program Files\Java\jdk1.8.0_65
+CLASSPATH=.;E:\Program Files\Java\jdk1.8.0_65\lib\dt.jar;.;E:\Program Files\Java\jdk1.8.0_65\lib\tools.jar
+PATH=.;E:\Program Files\Java\jdk1.8.0_65\bin; E:\Program Files\Java\jdk1.8.0_65\jre1.8.0_65\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;
+USERNAME=controller
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.2 Build 9200 
+
+CPU:total 4 (8 cores per cpu, 2 threads per core) family 6 model 10 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, ht
+
+Memory: 4k page, physical 8251156k(1497888k free), swap 12071684k(2173604k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.3-b02) for windows-amd64 JRE (1.6.0_13-b03), built on Mar  9 2009 10:50:19 by "java_re" with MS VC++ 8.0
+
+time: Tue Sep 27 15:21:22 2016
+elapsed time: 0 seconds
+
